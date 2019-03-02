@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Table
@@ -17,8 +18,8 @@ public class Navigant extends Personnel {
 	@JoinColumn(name="id_type_personnel", nullable = true)
 	private TypePersonel typePersonnel;
 	
-	@ManyToMany(mappedBy="navigants")
-	private List<Vol> vols;
+	@OneToMany(mappedBy = "personne" )
+	private List<VolNavigant> volNavigants;
 	
 	
 }

@@ -1,6 +1,7 @@
 package model.bean;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -53,12 +55,9 @@ public class Vol {
 		)
 	private List<Passager> passagers;
 	
-	@ManyToMany
-	@JoinTable(name="vol_personnel_navigant", 
-		joinColumns= @JoinColumn(name="id_vol", referencedColumnName="id_vol"),
-		inverseJoinColumns= @JoinColumn(name="id_navigant", referencedColumnName="id")
-		)
-	private List<Navigant> navigants;
+	@OneToMany(mappedBy = "vol")
+	private List<VolNavigant> volNavigants;
+	
 	
 	@ManyToMany
 	@JoinTable(name="vol_personnel_Non_navigant", 
