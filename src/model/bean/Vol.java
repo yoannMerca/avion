@@ -54,11 +54,18 @@ public class Vol {
 	private List<Passager> passagers;
 	
 	@ManyToMany
-	@JoinTable(name="vol_personnel", 
+	@JoinTable(name="vol_personnel_navigant", 
 		joinColumns= @JoinColumn(name="id_vol", referencedColumnName="id_vol"),
-		inverseJoinColumns= @JoinColumn(name="id", referencedColumnName="id")
+		inverseJoinColumns= @JoinColumn(name="id_navigant", referencedColumnName="id")
 		)
 	private List<Navigant> navigants;
+	
+	@ManyToMany
+	@JoinTable(name="vol_personnel_Non_navigant", 
+		joinColumns= @JoinColumn(name="id_vol", referencedColumnName="id_vol"),
+		inverseJoinColumns= @JoinColumn(name="id_non_navigant", referencedColumnName="id")
+		)
+	private List<NonNavigant> nonNavigants;
 	
 	
 }

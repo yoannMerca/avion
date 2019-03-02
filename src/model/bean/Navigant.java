@@ -13,6 +13,10 @@ import javax.persistence.Table;
 @Entity
 public class Navigant extends Personnel {
 	
+	@ManyToOne
+	@JoinColumn(name="id_type_personnel", nullable = true)
+	private TypePersonel typePersonnel;
+	
 	@ManyToMany(mappedBy="navigants")
 	private List<Vol> vols;
 	
