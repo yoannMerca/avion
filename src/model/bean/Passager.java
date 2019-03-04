@@ -26,6 +26,4 @@ public class Passager extends Personne{
 	private List<Vol> vols;
 
 	
-	
-	
 }

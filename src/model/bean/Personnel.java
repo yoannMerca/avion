@@ -13,11 +13,6 @@ import javax.persistence.Table;
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Personnel extends Personne {
-	
-/*	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id_personnel;
-	*/
 	@Column
 	private float salaire;
 }
